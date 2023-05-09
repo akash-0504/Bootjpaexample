@@ -1,6 +1,8 @@
 package com.jpa.test;
 
+import java.util.Iterator;
 import java.util.Optional;
+import java.util.function.Consumer;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -50,16 +52,38 @@ public class BootjpaexampleApplication {
 
 		// update the user of id 53
 
-		Optional<User> optional = userRepository.findById(53);
+//		Optional<User> optional = userRepository.findById(53);
+//		User user = optional.get();
+//		user.setName("raj kapoor");
+//		User result = userRepository.save(user);
+//		System.out.println(result);
 
-		User user = optional.get();
-
-		user.setName("raj kapoor");
-
-		User result = userRepository.save(user);
-
-		System.out.println(result);
-
+		//how to get data 
+		//findById(id) - return optional containing your data 
+//		Iterable<User> itr = userRepository.findAll();
+//		Iterator<User> iterator = itr.iterator();
+		
+		/*
+		 * while(iterator.hasNext()) 
+		 * { User user = iterator.next();
+		 * System.out.println(user);
+		 * 
+		 * }
+		 */
+		
+	//	itr.forEach(user->{System.out.println(user);}); 
+		
+		//Deleting the user element by id 
+//		userRepository.deleteById(53);
+//		System.out.println("deleted");
+//	}
+        
+		//deleting by all users
+		
+		Iterable<User> alluser = userRepository.findAll();
+		
+		alluser.forEach(user->System.out.println(user));
+		
+		userRepository.deleteAll(alluser);
 	}
-
 }
