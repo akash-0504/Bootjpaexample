@@ -18,8 +18,7 @@ public class BootjpaexampleApplication {
 	public static void main(String[] args) {
 		ApplicationContext context = SpringApplication.run(BootjpaexampleApplication.class, args);
 		UserRepository userRepository = context.getBean(UserRepository.class);
-
-		
+	
 //		  User user = new User(); user.setName("akash bairagi");
 //		  user.setCity("indore"); user.setStatus("java developer");
 //		  
